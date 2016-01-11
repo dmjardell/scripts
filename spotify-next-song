@@ -1,0 +1,3 @@
+#!/bin/bash
+WINDOW=`xdotool search --name "Spotify Free - Linux Preview"`
+xdotool key --window $WINDOW ctrl+Right

@@ -1,0 +1,4 @@
+#!/bin/bash
+MOVIEDIRECTORIES="/media/david/D43800A538008926/Film /media/david/Gloin/MEDIA/Filmer /media/david/Lager/Film /media/david/Oskar/Film /media/david/Speedo/Film"
+
+ls $MOVIEDIRECTORIES
