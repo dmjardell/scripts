@@ -1,3 +1,4 @@
 #!/bin/bash
-WINDOW=`xdotool search --name "Spotify Free - Linux Preview"`
-xdotool key --window $WINDOW ctrl+Right
+spotifyWindowTitle="Spotify Free - Linux Preview"
+window=`xdotool search --name $spotifyWindowTitle`
+xdotool key --window $window ctrl+Right
