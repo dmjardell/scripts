@@ -1,4 +1,2 @@
 #!/bin/bash
-spotifyWindowTitle="Spotify Free - Linux Preview"
-window=`xdotool search --name $spotifyWindowTitle`
-xdotool key --window $window ctrl+Right
+dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
