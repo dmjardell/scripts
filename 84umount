@@ -1,4 +1,0 @@
-#!/bin/bash
-
-umount /dev/loop0
-losetup -d /dev/loop0
