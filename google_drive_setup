@@ -1,0 +1,8 @@
+#!/bin/bash
+mountpoint /home/david/GDrive > /dev/null
+if [ $? -ne 0 ];
+then
+google-drive-ocamlfuse /home/david/GDrive
+else
+echo "GDrive already mounted and set-up. Aborting."
+fi
