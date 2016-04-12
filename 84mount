@@ -1,5 +1,0 @@
-#!/bin/bash
-
-losetup /dev/loop0  /media/david/Gloin/hash.raw
-cryptsetup luksOpen /dev/loop0 secdata
-
