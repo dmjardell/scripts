@@ -5,11 +5,14 @@ case "$1" in
 next)
 	dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
 	;;
+prev)
+dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
+;;
 pause)
 	dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
 	;;
 *)
-echo $"Usage: $0 {next|pause}"
+echo $"Usage: $0 {next|prev|pause}"
 exit 1
 
 esac
