@@ -1,6 +1,6 @@
 This repo mostly contains various bash scripts that I use on a daily basis to make my digital life a little bit easier.
 
-###spotify-contro###l
+###spotify-control
 
 To make it useful you need to associate a keyboard combination  for the script, one for each argument; prev,next,pause etc... In the xfce desktop environment you can launch xfce4-keyboard-settings and under the "application shortcuts" tab add a keyboard shortcut for the script.
 
