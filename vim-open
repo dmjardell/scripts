@@ -1,0 +1,3 @@
+#!/bin/bash
+ARGS="$@"
+xfce4-terminal -e "vim $ARGS"
