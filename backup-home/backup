@@ -1,0 +1,4 @@
+#!/bin/bash
+PATHS=$(cat ./PATHS)
+tar -cf "$(date | sed -e 's/ /_/g; s/:/;/g').tar" $PATHS
+
