@@ -26,4 +26,4 @@ if [ $UID -ne 0 ]; then
 	        alias update='sudo apt-get upgrade'
 fi
 
-
+alias lh='ls -a | egrep "^\."'
