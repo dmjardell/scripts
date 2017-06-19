@@ -26,4 +26,6 @@ if [ $UID -ne 0 ]; then
 	        alias update='sudo apt-get upgrade'
 fi
 
+alias lsize='du -hd | sort -h'
+
 alias lh='ls -a | egrep "^\."'
