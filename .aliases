@@ -25,7 +25,13 @@ if [ $UID -ne 0 ]; then
 	    alias reboot='sudo reboot'
 	        alias update='sudo apt-get upgrade'
 fi
-
+#check size of all files/folders in current working directory and sorts output by size
 alias lsize='du -hd | sort -h'
-
+#list hidden files
 alias lh='ls -a | egrep "^\."'
+
+alias aptfind='sudo apt-cache search '
+#Lists all installed packages sorted by their install size
+alias listpkgbysize= sed -ne '/^Package: \(.*\)/{s//\1/;h;};/^Installed-Size: \(.*\)/{s//\1/;G;s/\n/ /;p;}' /var/lib/dpkg/status | sort -rn
+
+alias upgrade='sudo apt-get upgrade'
