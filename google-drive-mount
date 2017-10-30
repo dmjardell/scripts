@@ -4,6 +4,7 @@ mountpoint $MOUNTPOINT > /dev/null
 if [ $? -ne 0 ];
 then
 google-drive-ocamlfuse $MOUNTPOINT
+echo "Google drive was mounted to $MOUNTPOINT"
 else
 echo "GDrive already mounted and set-up. Aborting."
 fi

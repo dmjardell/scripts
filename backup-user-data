@@ -1,0 +1,15 @@
+#!/bin/bash
+
+#USER VARIABLES
+BACKUP_PATH='/media/david/Drive-MainAcc/backups'
+NOW=$(date +%F)
+
+#How to restore applications from a previous build or after data loss 
+#sudo dpkg --clear-selections 
+#sudo dpkg --set-selections < PATH_TO_STATE_FILE
+#sudo apt-get update && sudo apt-get dselect-upgrade
+#optionally run sudo apt-get autoremove to remove redudant packages
+
+#BACKUP THE APPLICATION STATE OF THE SYSTEM
+cp /etc/apt/sources.list $BACKUP_PATH
+dpkg --get-selections > "$BACKUP_PATH/application-selection-state_$NOW"
