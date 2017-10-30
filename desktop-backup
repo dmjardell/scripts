@@ -1,0 +1,18 @@
+#!/bin/bash
+
+#A SCRIPT THAT WILL SAVE THE USERS CURRENT SYSTEM CONFIGURATION
+echo "Usage: backup-user-data [PATH TO BACKUP FOLDER]"
+
+#USER VARIABLES
+BACKUP_PATH=$1
+NOW=$(date +%F)
+
+#How to restore applications from a previous build or after data loss 
+#sudo dpkg --clear-selections 
+#sudo dpkg --set-selections < PATH_TO_STATE_FILE
+#sudo apt-get update && sudo apt-get dselect-upgrade
+#optionally run sudo apt-get autoremove to remove redudant packages
+
+#BACKUP THE APPLICATION STATE OF THE SYSTEM
+cp /etc/apt/sources.list $BACKUP_PATH
+dpkg --get-selections > "$BACKUP_PATH/application-selection-state_$NOW"
