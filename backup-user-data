@@ -1,7 +1,10 @@
 #!/bin/bash
 
+#A SCRIPT THAT WILL SAVE THE USERS CURRENT SYSTEM CONFIGURATION
+echo "Usage: backup-user-data [PATH TO BACKUP FOLDER]"
+
 #USER VARIABLES
-BACKUP_PATH='/media/david/Drive-MainAcc/backups'
+BACKUP_PATH=$1
 NOW=$(date +%F)
 
 #How to restore applications from a previous build or after data loss 
