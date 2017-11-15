@@ -3,8 +3,10 @@
 #A SCRIPT THAT WILL SAVE THE USERS CURRENT CONFIGURATION
 
 #USER VARIABLES
-BACKUP_PATH='/home/david/Dropbox'
 NOW=$(date +%F)
+BACKUP_PATH='/home/david/Dropbox'
+DST_FOLDER="$BACKUP_PATH/desktop-backup.$NOW"
+
 
 #How to restore applications from a previous build or after data loss 
 #sudo dpkg --clear-selections 
@@ -13,5 +15,6 @@ NOW=$(date +%F)
 #optionally run sudo apt-get autoremove to remove redudant packages
 
 #Save the current state of the systems packages
-cp /etc/apt/sources.list "$BACKUP_PATH/sources.list.$NOW"
-dpkg --get-selections > "$BACKUP_PATH/application-selection-state_$NOW"
+mkdir $DST_FOLDER
+cp /etc/apt/sources.list "$DST_FOLDER/"
+dpkg --get-selections > "$DST_FOLDER/application-selection-state"
