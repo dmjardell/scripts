@@ -4,10 +4,21 @@
 NOW=$(date +%F_%R)
 BACKUP_PATH='/home/david/Dropbox'
 DST_FOLDER="$BACKUP_PATH/desktop-backup.$NOW"
-PATHS="/etc $HOME/.vimrc $HOME/.zshrc $HOME/.aliases"
+
+PATH_OPT=2
+PATHS1="/etc $HOME/.vimrc $HOME/.zshrc $HOME/.aliases"
+PATHS2=$(cat ./PATHS)
+case $PATH_OPT in
+	1)
+		PATHS=$PATHS1
+		;;
+	2)
+		PATHS=$PATHS2
+		;;
+esac
 
 #elevate priviligies if script was not run as root
-(( EUID != 0 )) && exec sudo -- "$0" "$@"
+(( EUID != 0 )) && exec sudo -E -- "$0" "$@"
 
 #if the destination folder already exists abort the script 
 if [ ! -d $DST_FOLDER ]; then
