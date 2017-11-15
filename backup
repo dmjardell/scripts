@@ -1,4 +1,26 @@
 #!/bin/bash
-PATHS=$(cat ./PATHS)
-tar -cf "$(date | sed -e 's/ /_/g; s/:/;/g').tar" $PATHS
+
+#USER VARIABLES
+NOW=$(date +%F_%R)
+BACKUP_PATH='/home/david/Dropbox'
+DST_FOLDER="$BACKUP_PATH/desktop-backup.$NOW"
+PATHS="/etc $HOME/.vimrc $HOME/.zshrc $HOME/.aliases"
+
+#elevate priviligies if script was not run as root
+(( EUID != 0 )) && exec sudo -- "$0" "$@"
+
+#if the destination folder already exists abort the script 
+if [ ! -d $DST_FOLDER ]; then
+
+	mkdir $DST_FOLDER
+else 
+	echo "$DST_FOLDER already exists... aborting script"
+	exit
+fi
+
+#save package states
+cp /etc/apt/sources.list "$DST_FOLDER/"
+dpkg --get-selections > "$DST_FOLDER/application-selection-state"
+#archive and compress files and folders in $PATHS
+tar -cpzf $DST_FOLDER/data.$NOW.tar.gz $PATHS
 
