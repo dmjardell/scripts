@@ -1,5 +1,5 @@
 #!/bin/bash
-MOUNTPOINT="/media/david/Drive-MainAcc"
+MOUNTPOINT="/media/david/Glon/Drive-MainAcc"
 mountpoint $MOUNTPOINT > /dev/null
 if [ $? -ne 0 ];
 then
